@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 80%;
+        text-align: center;
+        margin: auto;
+      }
+      h1 {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(65, 65, 168, 1) 0%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        color: #ffff;
+        font-size: 3rem;
+      }
+      .wrapper {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          50deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(65, 65, 168, 1) 0%,
+          rgba(212, 248, 255, 1) 91%
+        );
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #ffff;
+        font-size: 2rem;
+        width: 80%;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Todays Weather</h1>
+    <br />
+    <div class="wrapper">
+      <p class="locate">Location :</p>
+      <br />
+      <p class="temperature">Temperature:</p>
+      <br />
+      <p class="detail"></p>
+    </div>
+  </body>
+  <script>
+    window.addEventListener("load", () => {
+        let lat;
+        let long;
+    //     const apiKey = "b0462350e18520bb6a22f6c59f7e4e1f";
+    //     const locate = document.getElementsByClassName("location");
+    // const temp = document.getElementsByClassName("temperature");
+    // const weather = document.getElementsByClassName("detail");
+
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(position => {
+                //console.log(position);
+                lat = position.coords.latitude;
+                long = position.coords.longitude;
+                const api = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${"b0462350e18520bb6a22f6c59f7e4e1f"}`;
+
+                fetch(api)
+                    .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data)
+                });
+            });
+           
+        }
+    })
+  </script>
+</html>
