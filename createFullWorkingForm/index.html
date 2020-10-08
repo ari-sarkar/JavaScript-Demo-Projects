@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <form id="form">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" pattern="[A-Za-z]+" required>
+        <br><label for="phone">Phone:</label><br>
+        <input type="text" id="phone" pattern="^(0|[1-9][0-9]*)$" required>
+        <br><label for="email">E-mail:</label><br>
+        <input type="email" id="email" required>
+        <br><label for="add">ADD:</label><br>
+        <input type="text" id="add" placeholder="optional"><br>
+        <input type="submit" id="submit">
+    </form>
+</body>
+<script>
+    const name = document.getElementById("name");
+    const phone = document.getElementById("phone");
+    const email = document.getElementById("email");
+    const add = document.getElementById("add");
+    const submitButton = document.getElementById("submit");
+    
+    submitButton.addEventListener("click", () =>{
+         if(name.value.length < 3 ){
+             alert("Please Write Your Full Name");
+        }
+        if(phone.value.length < 11){
+             alert("Please Write a Correct No");
+        }
+    })
+
+    
+</script>
+</html>

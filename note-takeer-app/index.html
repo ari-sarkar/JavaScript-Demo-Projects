@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 99%;
+            margin: auto;
+            text-align: center;
+        }
+        .displayNotes {
+            width: 800px;
+            margin: auto;
+            height: 180px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add your Notes here:</h1>
+    <span>Note:</span><input id="input" style="width: 500px;"><button id="button" style="margin-bottom: 15px;">Add Note</button>
+    <div class="displayNotes">
+
+    </div>
+</body>
+<script>
+    const input = document.querySelector("#input");
+    const button = document.querySelector("#button");
+    const displayNotes = document.querySelector(".displayNotes");
+        button.addEventListener("click", () => {
+            displayNotes.innerHTML = displayNotes.innerHTML + '<br>' + '*' + input.value ;
+        })
+</script>
+</html>

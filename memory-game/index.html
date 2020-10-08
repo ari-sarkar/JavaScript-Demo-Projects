@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      .imageWrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 200px);
+      }
+      .blackContainer {
+        position: relative;
+      }
+      .black {
+        position: absolute;
+        background-color: black;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+        z-index: 500;
+        opacity: 1;
+        transition: opacity 1s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="imageWrapper">
+      <div class="blackContainer">
+        <img src="./wexor-tmg-L-2p8fapOA8-unsplash.jpg" alt="turtle" class="image" />
+        <div class="black"></div>
+      </div>
+      <div class="blackContainer">
+        <img src="./zdenek-machacek-eqXiLNfZDc0-unsplash.jpg" alt="bird" class="image" />
+        <div class="black"></div>
+      </div>
+      <div class="blackContainer">
+        <img src="./stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg" alt="frog" class="image" />
+        <div class="black"></div>
+      </div>
+      <div class="blackContainer">
+        <img src="./stephanie-leblanc-JLMEZxBcXCU-unsplash.jpg" alt="frog" class="image" />
+        <div class="black"></div>
+      </div>
+      <div class="blackContainer">
+        <img src="./wexor-tmg-L-2p8fapOA8-unsplash.jpg" alt="turtle" class="image" />
+        <div class="black"></div>
+      </div>
+      <div class="blackContainer">
+        <img src="./zdenek-machacek-eqXiLNfZDc0-unsplash.jpg" alt="bird" class="image" />
+        <div class="black"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var black = document.querySelectorAll(".black");
+    var image = document.querySelectorAll(".image"),
+      eachIndexs = [];
+    black.forEach((element, index) => {
+      // FOR LOOPOING THROUGH EACH ELEMENT IN BLACK OBJECT
+      element.addEventListener("click", () => {
+        element.style.display = "none";
+      });
+    });
+    image.forEach((element, index) => {
+      element.addEventListener("mouseover", () => {
+        eachIndexs.push(index);
+        const eac = eachIndexs.slice(0, 2);
+        let a = eac[0]; 
+        let b = eac[1]; 
+        if(image[a].alt === image[b].alt){
+            setTimeout(()=>{
+                alert("You Won");
+                window.location.reload();
+            },100);
+        }
+        else {
+            setTimeout(() => {
+                alert("Better luck next time!");
+                window.location.reload();
+            })
+           
+        }
+      });
+    });
+  </script>
+</html>

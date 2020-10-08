@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            width: 40%;
+            margin: auto;
+        }
+        table, tr, td {
+            height: 2rem;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: royalblue;">Expense List</h1>
+    <div  style="margin-bottom: 150px;">
+        <form>
+            <label for="nameInput">NAME</label><br><input style="width: 100%;" id="nameInput">
+            <label style="width: 40%;" for="dateInput">DATE</label><br><input style="width: 20%;" id="dateInput" placeholder="dd-mm-yyyy"><br>
+            <label style="width: 40%;" for="priceInput">PRICE</label><br><input style="width: 20%;" id="priceInput"><br>
+            <button style="width: 20%; margin-top: 10px;" id="button">Add</button>
+        </form>
+    </div>
+    <div style="width: 40%; margin: auto; ">
+        <table style="width: 100%; background-color: rgb(204, 197, 191);" id="myTable">
+            <tr>
+                <th  style="border: 1px solid black;">NAME</th>
+                <th   style="border: 1px solid black;">DATE</th>
+                <th   style="border: 1px solid black;">PRICE</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    const name = document.querySelector("#nameInput");
+    const date = document.querySelector("#dateInput");
+    const price = document.querySelector("#priceInput");
+    const button = document.querySelector("#button");
+    const table = document.querySelector("#myTable");
+    // Function
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+       const row = table.insertRow(1);
+       const cell1 = row.insertCell(0);
+       const cell2 = row.insertCell(1);
+       const cell3 = row.insertCell(2);
+       cell1.innerText = name.value;
+       cell2.innerText = date.value;
+       cell3.innerText = price.value;
+    })
+</script>
+</html>

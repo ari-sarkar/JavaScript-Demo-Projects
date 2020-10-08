@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+      }
+      h1 {
+        color: rgb(85, 82, 82);
+      }
+      input {
+        border: 2px solid rgb(128, 123, 123);
+        width: 60%;
+      }
+      .button {
+        color: #ffff;
+        background-color: rgb(15, 190, 202);
+        border: 1px solid rgb(78, 75, 75);
+        border-radius: 8px;
+        width: 80px;
+        height: 1.3rem;
+        cursor: pointer;
+      }
+      .unorderList {
+          list-style: none;
+          width: 40%;
+          text-align: center;
+      }
+      .unorderList li {
+          background-color: rgb(14, 13, 14);
+          color: white;
+          font-size: 19px;
+          line-height: 1rem;
+          margin-top: 10px;
+          display: flex;
+          justify-content: space-between;
+          text-align: center;
+      }
+      .btn-del {
+        width: 10px;
+        height: 1.5rem;
+        margin-left: auto;
+        margin-left: 150px;
+        background-color: red;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My To-Do List</h1>
+    <input class="input"><button class="button">Add</button>
+    <div style="display: flex; flex-direction: column;justify-content: space-around;align-items: center;">
+    <ul class="unorderList">
+
+    </ul>
+</div>
+  </body>
+  <script>
+    //   const list = document.createElement("input");
+    //   document.body.appendChild(list);
+    //   const btn = document.createElement("button");
+    //   const textBtn = document.createTextNode("Add");
+    //   btn.appendChild(textBtn);
+    //   document.body.appendChild(btn);
+                let inp = document.querySelector(".input");
+                let btn = document.querySelector(".button");
+                let uL = document.querySelector(".unorderList");
+
+                btn.addEventListener("click", () => {
+                    let newList = document.createElement("li");
+                    console.log(newList)
+                    let lText = document.createTextNode(inp.value);
+                    newList.appendChild(lText);
+                    let delBtn = document.createElement("button");
+                    delBtn.classList.add("btn-del")
+                    newList.appendChild(delBtn);
+                    uL.appendChild(newList);
+                    delBtn.addEventListener("click", () => {
+                        newList.style.display = 'none';
+                    })
+                })
+                console.log()
+
+  </script>
+</html>

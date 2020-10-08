@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input" type="text" style="width: 190px;"><button id="button">Count Vowels</button>
+    <div id="output"></div>
+</body>
+<script>
+    const input = document.getElementById("input");
+    const button = document.getElementById("button");
+    const output = document.getElementById("output");
+    button.addEventListener('click', () => {
+        let count = 0;
+        const vowels = ['a','e','i','o','u'];
+        let inputArray = [...input.value];
+        console.log(inputArray);
+        for(let i = 0; i< inputArray.length; i++ ){
+            for(let j = 0; j < vowels.length; j++){
+                if(vowels[j] === inputArray[i]){
+                    count++;
+                }
+            }
+        }output.innerHTML = "The no of Vowels are : " + count;
+    })
+    
+</script>
+</html>
